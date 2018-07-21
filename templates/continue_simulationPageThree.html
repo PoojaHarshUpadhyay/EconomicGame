@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Continue Simulation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/stylesheet/style.css" type="text/css">
+    <script type="text/javascript" src="/static/javascript/validation.js"></script>
+</head>
+{% block body %}
+<body>
+<form action="/continue_simulationPageThree" id="continue_simulationPageThree" method="post" enctype="multipart/form-data">
+<header>
+
+    <div class="text-center">
+         {%if user%}
+            <p>Hi {{user}}</p>
+         {%endif%}
+        <a href="/logout"  name="logout" id="logout" class="align-right">Logout</a>
+    </div>
+</header>
+    <section>
+         <h2>
+        <label id="round">Round 3</label>
+        </h2>
+    </section>
+<section id="sectionSim">
+    <article>
+
+         <!-- <div><strong>Tax rate </strong> 50% of reported income</div>
+        <div> <strong>Fine </strong> 75% of unreported income plus tax on gross income </div>-->
+       <table class="rTable" id="maintable">
+           <tbody>
+            <tr class="rTableRow">
+               <th class="rTableHead"><strong>Year</strong></th>
+                <th class="rTableHead"><span style="font-weight: bold;">Gross income</span></th>
+                <th class="rTableHead"><strong>Reported income</strong></th>
+                <th class="rTableHead"><span style="font-weight: bold;">Income Tax</span></th>
+                <th class="rTableHead"><strong>Taxed income</strong></th>
+                <th class="rTableHead"><span style="font-weight: bold;">Audited?</span></th>
+                <th class="rTableHead"><strong>Fine</strong></th>
+                <th class="rTableHead"><span style="font-weight: bold;">Net income</span></th>
+            </tr>
+
+            {% for row in listRoundThree %}
+            <tr class="rTableRow">
+                <td class="rTableCell"  id="year">
+                       <label id="year" name="year">
+                            {{row.1}}
+                       </label>
+                    <input type="hidden" name="year" value="" />
+                </td>
+                <td class="rTableCell" id="grossIncome">
+                    <label id="grossIncome" name="grossIncome">
+                            {{row.2}}
+                    </label>
+                    <input type="hidden" name="grossIncome" value="" />
+                </td>
+                <td class="rTableCell">
+                    <input type="text" id="repIncome" name="repIncomeFirst">
+                    {{row.3}}
+                    <input type="hidden" name="repIncome" value="" />
+                </td>
+                <td class="rTableCell">
+                    <label id="incomeTax">
+                        {% if row.4 != '' %}
+                            {{row.4}}
+                        {% endif %}
+                   </label>
+                </td>
+                <td class="rTableCell">
+                    <label id="grossIncomeLessTax">
+                        {% if row.5 != '' %}
+                            {{row.5}}
+                        {% endif %}
+                    </label>
+                </td>
+                <td class="rTableCell">
+                    <label id="audited">
+                         {% if row.6 == 'YES' %}
+                         <font color="red"> <b>{{row.6}} </b> </font>
+                        {% endif %}
+                        {% if row.6 == 'NO' %}
+                         <font color="green"> <b> {{row.6}}</b>  </font>
+                        {% endif %}
+                    </label>
+                </td>
+                <td class="rTableCell">
+                    <label id="rowFine">
+                        {% if row.7 != '' %}
+                            {{row.7}}
+                        {% endif %}
+                    </label>
+                </td>
+                <td class="rTableCell">
+                    <label id="grossIncomeLessTaxLessFine">
+                        {% if row.8 != '' %}
+                            {{row.8}}
+                        {% endif %}
+                    </label></td>
+            </tr>
+            {% endfor %}
+           </tbody>
+       </table>
+    </article>
+</section>
+            <div class="form-group">
+                <input type="button" class="btnsize btn-primary btn-block" name="ctnSim" id="ctnConfirm" onclick="myConfirmRound1()" value="Confirm"/>
+                 <input type="button" class="btnsize btn-primary btn-block" name="addRound" id="ctnAddRound" onclick="ctnAddRound1()" value="Continue to next year"/>
+                <input type="hidden" name="ctnSim" id = "hdnCtn" value="{{counter}}">
+
+            </div>
+    <div class="form-group">
+         {% if counter == 11 %}
+        <label class="labelLeft"> <b>Net income - {{netIncome}} </b></label>
+          {% endif %}
+    </div>
+
+    <section>
+        <div class="form-group-index">
+            <input type="button" disabled class="btn btn-primary btn-block" name="ctnSim" id="ctnSimulation1" onclick="myContinueSim1()" value="Continue"/>
+        </div>
+    </section>
+</form>
+</body>
+{% endblock %}
+</html>

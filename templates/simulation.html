@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Simulation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/stylesheet/style.css" type="text/css">
+</head>
+{% block body %}
+<body>
+<form action="/simulation" id="simulationForm" method="post" enctype="multipart/form-data">
+<header>
+
+    <div class="text-center">
+         {%if user%}
+            <p>Hi {{user}}</p>
+         {%endif%}
+        <a href="/logout"  name="logout" id="logout" class="align-right">Logout</a>
+    </div>
+</header>
+<section>
+    <h2>
+       Simulation Introduction
+    </h2>
+    <article>
+
+        <p>
+            <p>This simulation will take the form of an economic game. Your objective in this game is to
+            accumulate the maximum amount of net income at the end of each round. <br></p>
+
+           <p> There are four rounds in this game, each containing ten “years”. Every year you will receive
+            a certain amount of income. It is then up to you to report your income and pay income tax
+on the income you reported. Once you confirm your reported income the game will
+automatically calculate your income tax owed and will subtract this from your gross income.
+From time to time audits will be conducted, and if you are found underreporting your
+income you will be subject to a large tax on the unreported income plus the tax on your
+gross income. In this way, the more you underreport, the higher the fine. <br></p>
+<p>At the beginning of each round you will be presented with a letter from the government
+reminding you to pay your taxes. Please read this document carefully as it contains
+information about that round’s respective tax rate and fine for underreported income.
+Keep this information in mind while playing the game. <br></p>
+<p>Finally, at a date in the near future, the user with the highest net income after all four
+rounds will receive a money prize in addition to the compensation given following the
+completion of the game. <br></p>
+Good luck!
+        </p>
+
+    </article>
+</section>
+<div class="form-group">
+    <input type="submit" class="btn btn-primary btn-block" name="accept" id="actSimulation" value="Continue"/>
+</div>
+
+</form>
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Summary</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/stylesheet/style.css" type="text/css">
+</head>
+{% block body %}
+<body>
+<form action="/summary" id="summaryForm" method="post" enctype="multipart/form-data">
+<header>
+
+    <div class="text-center">
+         {%if user%}
+            <p>Hi {{user}}</p>
+         {%endif%}
+        <a href="/logout"  name="logout" id="logout" class="align-right">Logout</a>
+    </div>
+</header>
+<section>
+    <h2>
+      Your net income for all the rounds are {{netincome}}
+    </h2>
+</section>
+    <article>
+        Your rank compared to others is {{rank}}
+    </article>
+    <section>
+        <br>
+<div class="form-group-summary">
+    <input type="submit" class="btn btn-primary btn-block" name="btnsummary" id="btnsummary" value="Complete Simulation"/>
+</div>
+    </section>
+
+
+</form>
+</body>
+{% endblock %}
+</html>

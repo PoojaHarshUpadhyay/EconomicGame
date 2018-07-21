@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Continue Simulation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/stylesheet/style.css" type="text/css">
+    <script type="text/javascript" src="/static/javascript/validation.js"></script>
+</head>
+{% block body %}
+<body>
+<form action="/continueSimSecondAccept" id="ctncontinueSimSecondAcceptForm" method="post" enctype="multipart/form-data">
+<header>
+
+    <div class="text-center">
+         {%if user%}
+            <p>Hi {{user}}</p>
+         {%endif%}
+        <a href="/logout"  name="logout" id="logout" class="align-right">Logout</a>
+    </div>
+</header>
+<section>
+   <!-- <h2>
+       {{fltrid}}
+    </h2>
+    <article>
+      <b> {{fltrdata}} </b>
+    </article> -->
+
+    {% if fltrid == '1.1' %}
+    <article>
+    <p>
+        <p>To whom it may concern, <br></p>
+
+        <p>This letter was written to notify you that when filing your taxes, you must account for all income you received for that year. Income isn’t necessarily just the money you make from your job – it’s also items like freelance income, interest, and sale of property. <br></p>
+        <p>If the IRS cannot match its reports with what you reported on your return, you may be audited and could face the procedure established by law. <br></p>
+        <p>The current tax rate is 25% of your reported income. The fine for underreporting your income is 100% of the amount of unreported income. We will be verifying how you respond to this letter. <br></p>
+
+        <p>Department of the Treasury <br>
+        Internal Revenue Service</p>
+    </p>
+    </article>
+    {% endif %}
+
+    {% if fltrid == '2.1' %}
+    <article>
+    <p>
+       <p> To whom it may concern, <br>
+
+        <p>This letter was written to notify you that when filing your taxes, you must account for all income you received for that year. Income isn’t necessarily just the money you make from your job – it also includes items such as freelance income, interest, and sale of property.<br></p>
+        <p>According to our records, Americans accurately report of 81% of their income. Don’t become a part of the minority of Americans that evade their taxes.  If the IRS cannot match its reports with what you reported on your return, you may be audited and could face the procedure established by law.<br></p>
+        <p>The current tax rate is 25% of your reported income. The fine for underreporting your income is 100% of the amount of unreported income. We will be verifying how you respond to this letter.<br></p>
+
+        <p>Department of the Treasury <br>
+        Internal Revenue Service</p>
+    </p>
+    </article>
+    {% endif %}
+
+    {% if fltrid == '3.1' %}
+    <article>
+        <p> To whom it may concern, <br> </p>
+
+        <p>This letter was written to notify you that when filing your taxes, you must account for all income you received for that year. Income isn’t necessarily just the money you make from your job – it also includes items such as freelance income, interest, and sale of property.<br></p>
+        <p>You’re an American citizen and America needs you to perform your civic duty. Your tax dollars help keep us safe and the country prosperous by directly supporting common resources such as firefighters and public roads. Are you going to support your country?<br></p>
+        <p>The current tax rate is 25% of your reported income. The fine for underreporting your income is 100% of the amount of unreported income. We will be verifying how you respond to this letter.<br></p>
+
+        <p>Department of the Treasury <br>
+        Internal Revenue Service</p>
+    </article>
+    {% endif %}
+
+    {% if fltrid == '4.1' %}
+    <article>
+        <p> To whom it may concern, <br> </p>
+        <p>  This letter was written to notify you that when filing your taxes, you must account for all income you received for that year. Income isn’t necessarily just the money you make from your job – it also includes items such as freelance income, interest, and sale of property. <br></p>
+        <p>  If you have previously underreported your income, we will consider it an oversight. However, if you don’t accurately declare your income now we will consider it an active choice and you therefore may be audited and could face the procedure established by law. <br></p>
+        <p>  The current tax rate is 25% of your reported income. The fine for underreporting your income is 100% of the amount of unreported income. We will be verifying how you respond to this letter.<br></p>
+        <p>  Department of the Treasury <br>
+        Internal Revenue Service</p>
+    </article>
+    {% endif %}
+
+</section>
+<div class="form-group">
+    <input type="submit" class="btn btn-primary btn-block" name="ctnSim" id="actSimulation" value="Continue"/>
+</div>
+
+
+</form>
+</body>
+{% endblock %}
+</html>

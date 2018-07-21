@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>error</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/stylesheet/style.css" type="text/css">
+</head>
+{% block body %}
+<body>
+<form action="/Summary" id="SummaryForm" method="post" enctype="multipart/form-data">
+<header>
+
+    <div class="text-center">
+         {%if user%}
+            <p>Hi {{user}}</p>
+         {%endif%}
+        <a href="/logout"  name="logout" id="logout" class="align-right">Logout</a>
+    </div>
+</header>
+<section>
+    <h2>
+      Please login again technical error occured - {{error}}
+    </h2>
+</section>
+    <article>
+        Instruction paragraph 2
+    </article>
+<footer>
+  <p>Copyrights 2018 @Pooja Upadhyay</p>
+</footer>
+</form>
+</body>
+{% endblock %}
+</html>

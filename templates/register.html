@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/stylesheet/style.css" type="text/css">
+</head>
+{% block body %}
+<body>
+	    <div class="login-form">
+  			<form action="/" id="registerForm" method="post" enctype="multipart/form-data">
+  			    <h3 class="text-center">Please register using your Amazon MTurk username</h3>
+                {% if userexists == "User exists" %}
+                      <p class="text-center" style="color:#FF0000">User name already taken</p>
+                {% endif %}
+                <div class="form-group">
+    			    <input type="text" class="form-control" name="username" id="username" placeholder="Username" required/>
+                </div>
+                <div class="form-group">
+    			    <input type="password" class="form-control"  name="password" id="password" placeholder="Password" required/>
+                </div>
+    			<div class="form-group">
+    			    <input type="password" class="form-control" name="confirmpassword"  id="confirmpassword" placeholder="Confirm Password" required/>
+                </div>
+                 {% if error == "Password doesnot match" %}
+                      <p class="text-center" style="color:#FF0000">Password doesnot match</p>
+                {% endif %}
+    			<div class="form-group">
+    			    <input type="submit" class="btn btn-primary btn-block" name="register" id="register" value="Register"/>
+                </div>
+
+  			</form>
+		</div>
+        <div class="text-center">
+            Already a user?
+            Login here
+            <a href="/login" name="login" id="login">Login</a>
+        </div>
+        <div class="text-center">
+                    This survey is hosted externally which means that we need your MTurk username to match your survey results to the MTurk HIT.
+         </div>
+</body>
+{% endblock %}
+</html>
